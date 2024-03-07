@@ -14,7 +14,7 @@ const App = () => {
             outer: 'parent',
           }),
           interact.modifiers.restrictSize({
-            min: { width: 100, height: 50 },
+            min: { width: 50, height: 25 },
           }),
         ],
         inertia: true,
@@ -36,27 +36,41 @@ const App = () => {
             endOnly: true,
           }),
         ],
+        restrict: {
+          restriction: 'parent',
+          elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
+          endOnly: true,
+        },
       });
   }, []);
 
   return (
-    <div className='cona' style={{ backgroundColor: "black", width: '100%', height: '100vh' }}>
-      <div className="row" style={{ backgroundColor:"red"}}>
-        <div className="col-sm">
+    <div className='container-fluid' style={{ height: '100%', overflow: 'hidden' }}>
+      <div className="row">
+        <div className="col">
+
           <div className="resize-drag component" style={{ width: '100%', height: '50vh' }}>
             Component 1
           </div>
+
         </div>
-        <div className="col-sm">
+        <div className="col">
+
           <div className="resize-drag component" style={{ width: '100%', height: '50vh' }}>
             Component 2
           </div>
+
+        </div>
+        </div>
+
+        <div class="row">
+
+          <div className="resize-drag component" style={{ width: '100%', height: '30vh' }}>
+            Component 3
+          </div>
         </div>
       </div>
-      <div className="resize-drag component" style={{ width: '100%', height: '50vh' }}>
-        Component 3
-      </div>
-    </div>
+    
   );
 };
 
