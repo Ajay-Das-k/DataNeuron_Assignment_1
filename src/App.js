@@ -28,27 +28,36 @@ const App = () => {
             target.setAttribute('data-y', y);
           },
         },
+      })
+      .draggable({
+        modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent',
+            endOnly: true,
+          }),
+        ],
       });
   }, []);
 
   return (
-    <div className="container" style={{ backgroundColor: "black", width: '100%',margin :'0',padding:'0' }}>
-      <div className="row">
+    <div className='cona' style={{ backgroundColor: "black", width: '100%', height: '100vh' }}>
+      <div className="row" style={{ backgroundColor:"red"}}>
         <div className="col-sm">
-          <div className="resize-drag component" style={{ width: '50%', height: '150px' }}>
+          <div className="resize-drag component" style={{ width: '100%', height: '50vh' }}>
             Component 1
           </div>
         </div>
         <div className="col-sm">
-          <div className="resize-drag component" style={{ width: '50%', height: '150px' }}>
+          <div className="resize-drag component" style={{ width: '100%', height: '50vh' }}>
             Component 2
           </div>
         </div>
       </div>
-      <div className="resize-drag component" style={{ width: '100%', height: '150px' }}>
+      <div className="resize-drag component" style={{ width: '100%', height: '50vh' }}>
         Component 3
       </div>
     </div>
   );
 };
+
 export default App;
